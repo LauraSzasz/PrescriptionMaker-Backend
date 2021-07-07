@@ -6,7 +6,6 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
-import java.util.Set;
 
 @Entity
 @Table(name = "medicines")
@@ -22,7 +21,7 @@ public class Medicine {
     @Column(name = "brand_name")
     private String brandName;
 
-    @Column(name = "chemical _name")
+    @Column(name = "chemical_name")
     private String chemicalName;
 
     private int quantity;
@@ -33,11 +32,5 @@ public class Medicine {
     @Column(name = "administration_method")
     private AdministrationMethod administrationMethod;
 
-    @ManyToMany(mappedBy = "medicine")
-    private Set<Prescription> prescriptionSet;
 
-    @JsonBackReference
-    public Set<Prescription> getPrescriptionSet() {
-        return prescriptionSet;
-    }
 }
