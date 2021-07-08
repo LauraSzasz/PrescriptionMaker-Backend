@@ -1,7 +1,7 @@
 package com.fortech.Prescription.Maker.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fortech.Prescription.Maker.enums.AdministrationMethod;
+import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
@@ -11,12 +11,13 @@ import javax.persistence.*;
 @Table(name = "medicines")
 @Data
 @NoArgsConstructor
+@AllArgsConstructor
 public class Medicine {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "medicine_id")
-    private int id;
+    private Integer id;
 
     @Column(name = "brand_name")
     private String brandName;
@@ -31,6 +32,7 @@ public class Medicine {
     @Enumerated(EnumType.STRING)
     @Column(name = "administration_method")
     private AdministrationMethod administrationMethod;
+
 
 
 }
