@@ -5,11 +5,16 @@ import com.fortech.Prescription.Maker.enums.AdministrationMethod;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.stereotype.Component;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 
 @Data
 @AllArgsConstructor
 @NoArgsConstructor
+@Component
 public class MedicineDto {
 
     private Integer id;
@@ -19,7 +24,7 @@ public class MedicineDto {
     private String posology;
     private AdministrationMethod administrationMethod;
 
-    public MedicineDto (Medicine entity){
+    public MedicineDto(Medicine entity) {
         this.id = entity.getId();
         this.brandName = entity.getBrandName();
         this.chemicalName = entity.getChemicalName();
@@ -28,7 +33,7 @@ public class MedicineDto {
         this.administrationMethod = entity.getAdministrationMethod();
     }
 
-    public Medicine toEntity(){
+    public Medicine toEntity() {
         Medicine medicineEntity = new Medicine();
         medicineEntity.setId(this.getId());
         medicineEntity.setBrandName(this.getBrandName());
@@ -38,6 +43,18 @@ public class MedicineDto {
         medicineEntity.setAdministrationMethod(this.getAdministrationMethod());
 
         return medicineEntity;
+    }
+
+    public List<MedicineDto> medicineToDtoList(List<Medicine> medicineList) {
+        return medicineList.stream()
+                .map(medicine -> new MedicineDto(medicine))
+                .collect(Collectors.toList());
+    }
+
+    public List<Medicine> medicineDtoToMedicineList(List<MedicineDto> medicineDtoList){
+        return medicineDtoList.stream()
+                .map(medicineDto -> medicineDto.toEntity())
+                .collect(Collectors.toList());
     }
 
 }

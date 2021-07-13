@@ -11,8 +11,7 @@ public enum AdministrationMethod {
     RECTAL("RECTAL"),
     PARENTERAL("PARENTERAL"),
     TOPICAL("TOPICAL"),
-    VAGINAL("VAGINAL"),
-    OTHER("OTHER");
+    VAGINAL("VAGINAL");
 
     private String value;
 
