@@ -10,6 +10,7 @@ public enum AdministrationMethod {
     ORAL("ORAL"),
     RECTAL("RECTAL"),
     PARENTERAL("PARENTERAL"),
+    SUBCUTANEOUS("SUBCUTANEOUS"),
     TOPICAL("TOPICAL"),
     VAGINAL("VAGINAL");
 
@@ -17,5 +18,10 @@ public enum AdministrationMethod {
 
     AdministrationMethod(String value) {
         this.value = value;
+    }
+
+    @Override
+    public String toString() {
+        return this.value;
     }
 }
