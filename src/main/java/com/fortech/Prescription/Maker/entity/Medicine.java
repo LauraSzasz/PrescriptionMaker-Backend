@@ -24,17 +24,13 @@ public class Medicine {
     private Integer id;
 
     @Column(name = "brand_name")
-    @NotEmpty(message = "Brand name cannot be empty")
     private String brandName;
 
     @Column(name = "chemical_name")
-    @NotEmpty(message = "Chemical name cannot be empty")
     private String chemicalName;
 
     private String posology;
 
-    @NotNull
-    @Min(1)
     private Integer quantity;
 
     @Enumerated(EnumType.STRING)

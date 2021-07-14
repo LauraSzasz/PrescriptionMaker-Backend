@@ -5,6 +5,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import javax.validation.constraints.Min;
+import javax.validation.constraints.NotEmpty;
 import javax.validation.constraints.NotNull;
 
 @Data
@@ -14,10 +15,10 @@ public class MedicineDto {
 
     private Integer id;
 
-    @NotNull
+    @NotEmpty(message = "Brand name cannot be empty")
     private String brandName;
 
-    @NotNull
+    @NotEmpty(message = "Chemical name cannot be empty")
     private String chemicalName;
 
     private String posology;

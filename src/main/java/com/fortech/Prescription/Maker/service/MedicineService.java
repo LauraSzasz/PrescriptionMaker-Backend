@@ -58,7 +58,6 @@ public class MedicineService {
             oldMedicine.setPosology(updatedMedicine.getPosology());
             oldMedicine.setQuantity(updatedMedicine.getQuantity());
             medicineRepository.save(oldMedicine);
-            System.out.println(oldMedicine.toString());
         } else {
             throw new NotFoundException("Medicine not found");
         }
