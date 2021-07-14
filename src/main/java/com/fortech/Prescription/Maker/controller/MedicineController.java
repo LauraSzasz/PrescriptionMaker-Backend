@@ -1,9 +1,9 @@
 package com.fortech.Prescription.Maker.controller;
 
 import com.fortech.Prescription.Maker.dto.MedicineDto;
-import com.fortech.Prescription.Maker.exception.NotFoundException;
 import com.fortech.Prescription.Maker.service.MedicineService;
 import lombok.RequiredArgsConstructor;
+import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
@@ -19,35 +19,36 @@ public class MedicineController {
 
 
     @PostMapping()
-    public MedicineDto addMedicine(@Valid @RequestBody MedicineDto medicineDto) {
-        return medicineService.addMedicine(medicineDto);
+    public ResponseEntity<MedicineDto> addMedicine(@Valid @RequestBody MedicineDto medicineDto) {
+        return ResponseEntity.ok(medicineService.addMedicine(medicineDto));
     }
 
     @GetMapping()
-    public List<MedicineDto> getAllMedicines() {
-        return medicineService.getAll();
+    public ResponseEntity<List<MedicineDto>> getAllMedicines() {
+        return ResponseEntity.ok(medicineService.getAll());
     }
 
     @GetMapping("/{id}")
-    public MedicineDto getMedicineById(@PathVariable Integer id) {
-        return medicineService.getById(id);
+    public ResponseEntity<MedicineDto> getMedicineById(@PathVariable Integer id) {
+        return ResponseEntity.ok(medicineService.getById(id));
 
     }
 
     @GetMapping("/brandName/{brandName}")
-    public List<MedicineDto> getMedicinesByBrandName(@PathVariable String brandName) {
-        return medicineService.getAllByBrandName(brandName);
+    public ResponseEntity<List<MedicineDto>> getMedicinesByBrandName(@PathVariable String brandName) {
+        return ResponseEntity.ok(medicineService.getAllByBrandName(brandName));
 
     }
 
     @GetMapping("/chemicalName/{chemicalName}")
-    public List<MedicineDto> getMedicinesByChemicalName(@PathVariable String chemicalName) {
-        return medicineService.getAllByChemicalName(chemicalName);
+    public ResponseEntity<List<MedicineDto>> getMedicinesByChemicalName(@PathVariable String chemicalName) {
+        return ResponseEntity.ok(medicineService.getAllByChemicalName(chemicalName));
     }
 
     @PutMapping("/{id}")
-    public void updateMedicine(@PathVariable Integer id, @Valid @RequestBody MedicineDto medicineDto) {
+    public ResponseEntity<MedicineDto> updateMedicine(@PathVariable Integer id, @Valid @RequestBody MedicineDto medicineDto) {
         medicineService.update(id, medicineDto);
+        return ResponseEntity.ok(medicineDto);
     }
 
     @DeleteMapping("/{id}")
