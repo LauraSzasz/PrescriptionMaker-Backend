@@ -11,7 +11,6 @@ import org.springframework.web.bind.annotation.ExceptionHandler;
 import java.util.ArrayList;
 import java.util.List;
 
-@SuppressWarnings({"unchecked", "rawtypes"})
 @ControllerAdvice
 public class CustomExceptionHandler {
     @ExceptionHandler(Exception.class)

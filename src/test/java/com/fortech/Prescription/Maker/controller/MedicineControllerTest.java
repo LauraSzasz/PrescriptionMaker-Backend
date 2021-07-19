@@ -4,7 +4,6 @@ import com.fasterxml.jackson.databind.ObjectMapper;
 import com.fortech.Prescription.Maker.dto.MedicineDto;
 import com.fortech.Prescription.Maker.enums.AdministrationMethod;
 import com.fortech.Prescription.Maker.service.MedicineService;
-import com.mysql.cj.xdevapi.JsonArray;
 import lombok.SneakyThrows;
 import org.junit.Before;
 import org.junit.jupiter.api.Test;

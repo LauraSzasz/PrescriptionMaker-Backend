@@ -105,7 +105,6 @@ class MedicineServiceTest {
     void updateWhenNotFound(){
         assertThrows(NotFoundException.class, ()->{
             medicineService.update(1, medicineDto2);
-            verify((medicineRepository).findById(1));
         });
     }
 
