@@ -34,17 +34,6 @@ public class MedicineController {
 
     }
 
-    @GetMapping("/brandName/{brandName}")
-    public ResponseEntity<List<MedicineDto>> getMedicinesByBrandName(@PathVariable String brandName) {
-        return ResponseEntity.ok(medicineService.getAllByBrandName(brandName));
-
-    }
-
-    @GetMapping("/chemicalName/{chemicalName}")
-    public ResponseEntity<List<MedicineDto>> getMedicinesByChemicalName(@PathVariable String chemicalName) {
-        return ResponseEntity.ok(medicineService.getAllByChemicalName(chemicalName));
-    }
-
     @PutMapping("/{id}")
     public ResponseEntity<MedicineDto> updateMedicine(@PathVariable Integer id, @Valid @RequestBody MedicineDto medicineDto) {
         medicineService.update(id, medicineDto);

@@ -35,17 +35,6 @@ public class MedicineService {
         return modelMapper.map(medicine, MedicineDto.class);
     }
 
-    public List<MedicineDto> getAllByBrandName(String brandName) {
-        return medicineRepository.findAllByBrandName(brandName).stream()
-                .map(medicine -> modelMapper.map(medicine, MedicineDto.class))
-                .collect(Collectors.toList());
-    }
-
-    public List<MedicineDto> getAllByChemicalName(String chemicalName) {
-        return medicineRepository.findAllByChemicalName(chemicalName).stream()
-                .map(medicine -> modelMapper.map(medicine, MedicineDto.class))
-                .collect(Collectors.toList());
-    }
 
     public void update(Integer id, MedicineDto updatedMedicine) {
         Optional<Medicine> medicine = medicineRepository.findById(id);
